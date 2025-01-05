@@ -1,4 +1,4 @@
-:where(*) {
+* {
   box-sizing: border-box;
 }
 
@@ -6,12 +6,12 @@
   outline: 0;
 }
 
-:where(:focus-visible) {
+:focus-visible {
   outline: 4px dashed;
   outline-offset: 1px;
 }
 
-:where(.content) a {
+.content a {
   @media screen {
     &:focus-visible {
       outline-offset: 4px;
@@ -45,7 +45,7 @@ ul {
       margin-bottom: 0.5rem;
     }
 
-    &:where(:not(.list)) {
+    &:not(.list) {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -230,6 +230,18 @@ body {
   }
 }
 
+@supports not selector(a:has(b)) {
+  @media (max-width: 720px) {
+    :has(#menu-visibility-switch:not(:checked)) .menu {
+      display: none;
+    }
+
+    :has(#menu-visibility-switch:checked) .main {
+      display: none;
+    }
+  }
+}
+
 #menu-visibility-switch:not(:checked) ~ [data-if-checked] {
   display: none;
 }
@@ -276,6 +288,14 @@ body {
 @container (width > 720px) {
   #menu-visibility-switch-label {
     display: none;
+  }
+}
+
+@supports not selector(a:has(b)) {
+  @media (min-width: 720px) {
+    #menu-visibility-switch-label {
+      display: none;
+    }
   }
 }
 

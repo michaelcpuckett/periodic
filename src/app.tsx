@@ -57,8 +57,8 @@ app.get("/role/:role.html", (req, res) => {
   res.send(htmlResult);
 });
 
-app.get("/styles.css", (req, res) => {
-  const cssResult = getStyles();
+app.get("/styles.css", async (req, res) => {
+  const cssResult = await getStyles();
 
   fs.writeFileSync(path.resolve("./public/styles.css"), cssResult, "utf8");
 
