@@ -18,6 +18,7 @@ import {
 } from "../../data";
 import { mappedContentTypesToDescriptions } from "../../data/mappedContentTypesToDescriptions";
 import { ExternalLinkIcon, IconDefinitions } from "../components/Icons";
+import { MenuVisibilitySwitch } from "../components/MenuVisibilitySwitch";
 import { Navigation } from "../components/Navigation";
 import { CustomElement } from "../types";
 
@@ -97,45 +98,10 @@ export function RolePage({ role, abstractAriaRole }: RolePageProps) {
             <a href="/" className="page-heading">
               {pageTitle}
             </a>
-            <menu-visibility-switch>
-              <label
-                className="switch"
-                id="menu-visibility-switch-label"
-                aria-label="Toggle Menu"
-              >
-                <input
-                  id="menu-visibility-switch"
-                  type="checkbox"
-                  className="visually-hidden"
-                  role="switch"
-                />
-                <svg
-                  aria-hidden="true"
-                  data-if-unchecked
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <use href="#icon--open-menu"></use>
-                </svg>
-                <svg
-                  aria-hidden="true"
-                  data-if-checked
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <use href="#icon--close-menu"></use>
-                </svg>
-              </label>
-            </menu-visibility-switch>
+            <MenuVisibilitySwitch />
           </header>
           <div className="middle">
-            <div className="menu">
+            <div className="menu" id="nav">
               <Navigation role={role} />
             </div>
             <main className="main">

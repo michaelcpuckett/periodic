@@ -173,3 +173,7 @@ card-item {
   gap: 1em;
   margin: 0.5em 0;
 }
+
+keep-together {
+  white-space: nowrap;
+}

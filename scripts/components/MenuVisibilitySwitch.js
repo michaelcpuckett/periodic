@@ -5,6 +5,13 @@ window.customElements.define(
       new Promise(window.requestAnimationFrame).then(() => {
         const switchElement = this.querySelector("#menu-visibility-switch");
 
+        switchElement.addEventListener("input", () => {
+          switchElement.setAttribute(
+            "aria-expanded",
+            `${switchElement.checked}`
+          );
+        });
+
         switchElement.addEventListener("keydown", (event) => {
           if (event.key === "Enter") {
             event.preventDefault();
